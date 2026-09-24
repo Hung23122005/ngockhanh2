@@ -16,7 +16,7 @@ window.LOVE_CONFIG = {
   ],
   // All supplied images can appear as small floating memories.
   photos: Array.from(
-    { length: 19 },
+    { length: 8 },
     (_, i) => `assets/photos/${String(i + 1).padStart(2, "0")}.jpeg`,
   ),
   particleLimitDesktop: 36000,

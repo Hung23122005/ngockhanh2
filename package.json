@@ -1,0 +1,13 @@
+{
+  "name": "love-particle-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "32-second particle/photo animation inspired by the supplied reference video.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

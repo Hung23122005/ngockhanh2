@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#020306" />
+  <title>Love Particle Video</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app" aria-label="Love particle animation">
+    <canvas id="matrixCanvas"></canvas>
+    <canvas id="fxCanvas"></canvas>
+
+    <section id="photoStage" aria-hidden="true">
+      <div id="satelliteLayer"></div>
+      <div id="heroFrame">
+        <div class="heroGlow"></div>
+        <img id="heroPhoto" alt="" />
+        <div class="heroGlass"></div>
+      </div>
+    </section>
+
+    <section id="lanternStage" aria-hidden="true">
+      <div class="lantern-night-glow"></div>
+      <div id="fireflyLayer" aria-hidden="true"></div>
+      <div id="lanternBackLayer" aria-label="Lồng đèn phía sau cây"></div>
+
+      <div class="treeScene" aria-hidden="true">
+        <canvas id="sakuraCanvas" width="900" height="650"></canvas>
+      </div>
+
+      <div id="lanternLayer" aria-label="Các lồng đèn kỷ niệm"></div>
+
+      <div class="lanternInstruction">
+        <span>✦</span> Kéo để xoay 360° · Chạm lồng đèn để xem ảnh <span>✦</span>
+      </div>
+
+      <div id="memoryViewer" class="memory-viewer" aria-hidden="true">
+        <div class="memory-backdrop" data-close-memory></div>
+        <figure class="memory-dialog" role="dialog" aria-modal="true" aria-label="Ảnh kỷ niệm">
+          <button id="memoryClose" class="memory-close" type="button" aria-label="Đóng ảnh">×</button>
+          <button id="memoryPrev" class="memory-nav memory-prev" type="button" aria-label="Ảnh trước">‹</button>
+          <div class="memory-photo-wrap">
+            <img id="memoryPhoto" alt="Ảnh kỷ niệm" />
+            <div class="memory-photo-shine"></div>
+          </div>
+          <button id="memoryNext" class="memory-nav memory-next" type="button" aria-label="Ảnh tiếp theo">›</button>
+        </figure>
+      </div>
+    </section>
+
+    <div class="vignette"></div>
+    <div class="scanlines"></div>
+    <div class="grain"></div>
+
+    <div id="hint">SPACE: pause · R: replay · F: fullscreen</div>
+    <div id="debugTime"></div>
+
+    <button id="replayBtn" type="button">REPLAY</button>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="particle-photo.js"></script>
+  <script src="sakura.js"></script>
+  <script src="scene3d.js"></script>
+  <script src="scene-renderer.js"></script>
+  <script src="main-preview.js"></script>
+</body>
+</html>

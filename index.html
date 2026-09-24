@@ -1,0 +1,183 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#020306" />
+    <title>Love Particle Video</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="bgMusic" loop preload="auto">
+      <source src="./assets/music/background.mp3" type="audio/mpeg" />
+    </audio>
+    <section
+      id="midAutumnHome"
+      class="mid-autumn-home"
+      aria-label="Trang chủ Trung Thu"
+    >
+      <div class="mid-autumn-sky" aria-hidden="true">
+        <div class="home-moon-glow"></div>
+        <div class="home-moon"></div>
+        <div class="home-cloud home-cloud-1"></div>
+        <div class="home-cloud home-cloud-2"></div>
+        <div class="home-cloud home-cloud-3"></div>
+
+        <div class="home-stars">
+          <i style="--x: 8%; --y: 14%; --d: 0.2s"></i>
+          <i style="--x: 17%; --y: 27%; --d: 1.1s"></i>
+          <i style="--x: 27%; --y: 10%; --d: 1.8s"></i>
+          <i style="--x: 38%; --y: 22%; --d: 0.6s"></i>
+          <i style="--x: 58%; --y: 12%; --d: 1.4s"></i>
+          <i style="--x: 69%; --y: 27%; --d: 0.9s"></i>
+          <i style="--x: 82%; --y: 15%; --d: 1.7s"></i>
+          <i style="--x: 92%; --y: 35%; --d: 0.4s"></i>
+        </div>
+
+        <div class="home-lantern home-lantern-left">
+          <div class="home-lantern-halo"></div>
+          <div class="home-lantern-cap"></div>
+          <div class="home-lantern-body"></div>
+          <div class="home-lantern-tail"></div>
+        </div>
+
+        <div class="home-lantern home-lantern-right">
+          <div class="home-lantern-halo"></div>
+          <div class="home-lantern-cap"></div>
+          <div class="home-lantern-body"></div>
+          <div class="home-lantern-tail"></div>
+        </div>
+      </div>
+
+      <div class="mid-autumn-home-content">
+        <div class="home-eyebrow">✦ ĐÊM TRĂNG KỶ NIỆM ✦</div>
+        <h1 class="home-title">Hello Ngọc Khánh</h1>
+
+        <div class="home-divider" aria-hidden="true">
+          <span></span>
+          <b>☾</b>
+          <span></span>
+        </div>
+
+        <p class="home-subtitle">Có một món quà nhỏ đang chờ ở phía sau</p>
+
+        <button
+          id="startExperienceBtn"
+          class="start-experience-btn"
+          type="button"
+        >
+          <span class="start-btn-glow"></span>
+          <span class="start-btn-text">BẮT ĐẦU</span>
+          <span class="start-btn-icon">✦</span>
+        </button>
+
+        <div class="home-hint">Chạm để mở món quà</div>
+      </div>
+
+      <div class="home-rabbit home-rabbit-left" aria-hidden="true">
+        <span class="rabbit-ear rabbit-ear-a"></span>
+        <span class="rabbit-ear rabbit-ear-b"></span>
+        <span class="rabbit-head"></span>
+        <span class="rabbit-body"></span>
+      </div>
+
+      <div class="home-rabbit home-rabbit-right" aria-hidden="true">
+        <span class="rabbit-ear rabbit-ear-a"></span>
+        <span class="rabbit-ear rabbit-ear-b"></span>
+        <span class="rabbit-head"></span>
+        <span class="rabbit-body"></span>
+      </div>
+
+      <div class="home-ground" aria-hidden="true"></div>
+    </section>
+
+    <main id="app" aria-label="Love particle animation">
+      <canvas id="matrixCanvas"></canvas>
+      <canvas id="fxCanvas"></canvas>
+
+      <section id="photoStage" aria-hidden="true">
+        <div id="satelliteLayer"></div>
+        <div id="heroFrame">
+          <div class="heroGlow"></div>
+          <img id="heroPhoto" alt="" />
+          <div class="heroGlass"></div>
+        </div>
+      </section>
+
+      <section id="lanternStage" aria-hidden="true">
+        <div class="lantern-night-glow"></div>
+        <div id="fireflyLayer" aria-hidden="true"></div>
+        <div id="lanternBackLayer" aria-label="Lồng đèn phía sau cây"></div>
+
+        <div class="treeScene" aria-hidden="true">
+          <canvas id="sakuraCanvas" width="900" height="650"></canvas>
+        </div>
+
+        <div id="lanternLayer" aria-label="Các lồng đèn kỷ niệm"></div>
+
+        <div class="lanternInstruction">
+          <span>✦</span> Kéo để xoay 360° · Chạm lồng đèn để xem ảnh
+          <span>✦</span>
+        </div>
+
+        <div id="memoryViewer" class="memory-viewer" aria-hidden="true">
+          <div class="memory-backdrop" data-close-memory></div>
+          <figure
+            class="memory-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Ảnh kỷ niệm"
+          >
+            <button
+              id="memoryClose"
+              class="memory-close"
+              type="button"
+              aria-label="Đóng ảnh"
+            >
+              ×
+            </button>
+            <button
+              id="memoryPrev"
+              class="memory-nav memory-prev"
+              type="button"
+              aria-label="Ảnh trước"
+            >
+              ‹
+            </button>
+            <div class="memory-photo-wrap">
+              <img id="memoryPhoto" alt="Ảnh kỷ niệm" />
+              <div class="memory-photo-shine"></div>
+            </div>
+            <button
+              id="memoryNext"
+              class="memory-nav memory-next"
+              type="button"
+              aria-label="Ảnh tiếp theo"
+            >
+              ›
+            </button>
+          </figure>
+        </div>
+      </section>
+
+      <div class="vignette"></div>
+      <div class="scanlines"></div>
+      <div class="grain"></div>
+
+      <div id="hint">SPACE: pause · R: replay · F: fullscreen</div>
+      <div id="debugTime"></div>
+
+      <button id="replayBtn" type="button">REPLAY</button>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="particle-photo.js"></script>
+    <script src="sakura.js"></script>
+    <script src="scene3d.js"></script>
+    <script src="scene-renderer.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

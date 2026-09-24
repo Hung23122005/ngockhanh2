@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0}iframe{width:100vw;height:100vh;border:0}#result{position:fixed;top:0;left:0;z-index:999;background:#fff;color:#111;padding:12px;font:18px monospace}</style><div id="result">Waiting</div><iframe src="/?t=20"></iframe><script>
+const frame=document.querySelector('iframe');
+const result=document.getElementById('result');
+frame.addEventListener('load',()=>{
+ const doc=frame.contentDocument;
+ const button=doc.querySelector('.memory-lantern');
+ const viewer=doc.getElementById('memoryViewer');
+ button.click();
+ result.textContent=`early=${button.classList.contains('activating')&&!viewer.classList.contains('open')}`;
+ setTimeout(()=>{
+  const late=viewer.classList.contains('open') && !doc.getElementById('memoryCaption');
+  result.textContent+=` late=${late}`;
+ },600);
+});
+</script>
